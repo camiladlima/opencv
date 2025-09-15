@@ -141,6 +141,9 @@ void detectAndDraw( Mat& frame, CascadeClassifier& cascade, double scale, bool t
     printf("img::width: %d, height=%d\n", img.cols, img.rows );
     if (img.rows > 200 || img.cols > 200)
         resize( img, img, Size(200, 200));
+        if (andar < 0){
+      flip(img,img,1);
+      }
     drawImage(smallFrame, img, xo+=andar, 150);
     Rect recLaranja = Rect(xo, 150, img.cols, img.rows);
     if(xo>=860){andar = -5;}else if(xo<50){andar = 5;}
